@@ -6,8 +6,8 @@ class TestZoo(unittest.TestCase):
         self.zoo = Zoo()
 
     def test_negative_ticket_price(self):
-        self.assertEqual(self.zoo.get_ticket_price(-1), "error")
-
+        with self.assertRaises(ValueError):
+            self.zoo.get_ticket_price(-1)
     def test_child_ticket_price(self):
         self.assertEqual(self.zoo.get_ticket_price(12), 50)
 
